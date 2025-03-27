@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Page</title>
+    <link rel="stylesheet" href="assets/css/main.min.css">
+    <link rel="stylesheet" href="assets/css/style.min.css">
+</head>
+<body>
+    <div id="navbar"></div>
+
+  <script>
+    fetch('components/navbar.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('navbar').innerHTML = data;
+
+        // Highlight active page
+        const currentPage = window.location.pathname.split("/").pop();
+        const navLinks = document.querySelectorAll('.navbar__link');
+
+        navLinks.forEach(link => {
+          const linkPage = link.getAttribute('href').split("/").pop();
+          if (linkPage === currentPage) {
+            link.parentElement.classList.add('active');
+          }
+          
+      console.log(currentPage);
+        });
+      });
+  </script>   
+</body>
+</html>

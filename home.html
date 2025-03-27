@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BeanBrew</title>
+    <link rel="stylesheet" href="assets/css/main.min.css">
+    <link rel="stylesheet" href="assets/css/style.min.css">
+</head>
+<body>
+  <div id="navbar"></div>
+
+  <section class="hero">
+    <div class="hero__image-wrapper">
+      <img src="assets/imgs/coffee_cup.jpg" alt="Coffee cup" class="hero__image">
+    </div>
+    <div class="hero__content">
+      <h1 class="hero__title">Discover the Perfect Cup</h1>
+      <p class="hero__description">Experience the rich aroma and smooth taste of our premium coffee blends.</p>
+      <a href="#" class="hero__button">Explore Our Blends</a>
+    </div>
+  </section>
+
+  <script>
+    fetch('components/navbar.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('navbar').innerHTML = data;
+
+        // Highlight active page
+        const currentPage = window.location.pathname.split("/").pop();
+        const navLinks = document.querySelectorAll('.navbar__link');
+
+        navLinks.forEach(link => {
+          const linkPage = link.getAttribute('href').split("/").pop();
+          if (linkPage === currentPage) {
+            link.parentElement.classList.add('active');
+          }
+          
+      console.log(currentPage);
+        });
+      });
+  </script>
+</body>
+</html>
