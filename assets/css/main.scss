@@ -7,6 +7,7 @@ $font-family: 'Raleway', sans-serif;
 
 // _navbar.scss
 .navbar {
+  position: fixed;
   background-color: rgba($primary-color, 0.9);
   backdrop-filter: blur(5px);
   transition: all 0.3s ease;
@@ -26,13 +27,13 @@ $font-family: 'Raleway', sans-serif;
 
   .nav-link {
     color: $text-color;
-    position: relative;
+    position: sticky;
     padding: 0.5rem 0;
     transition: all 0.3s ease;
 
     &::after {
       content: '';
-      position: absolute;
+      position: sticky;
       bottom: 0;
       left: 0;
       width: 0;
@@ -99,12 +100,12 @@ $font-family: 'Raleway', sans-serif;
 @import "../../node_modules/bootstrap/scss/containers";
 @import "../../node_modules/bootstrap/scss/grid";
 @import "../../node_modules/bootstrap/scss/helpers";
-@import "../../node_modules/bootstrap/scss/nav";
-@import "../../node_modules/bootstrap/scss/navbar";
 @import "../../node_modules/bootstrap/scss/buttons";
 @import "../../node_modules/bootstrap/scss/modal";
 @import "../../node_modules/bootstrap/scss/forms";
 @import "../../node_modules/bootstrap/scss/card";
+@import "../../node_modules/bootstrap/scss/nav";
+@import "../../node_modules/bootstrap/scss/navbar";
 @import "../../node_modules/bootstrap/scss/carousel";
 @import "../../node_modules/bootstrap/scss/close";
 @import "../../node_modules/bootstrap/scss/tables";

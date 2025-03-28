@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Page</title>
+    <title>BeanBrew | About Us</title>
     <link rel="stylesheet" href="assets/css/main.min.css">
     <link rel="stylesheet" href="assets/css/style.min.css">
 </head>
@@ -11,24 +11,57 @@
     <div id="navbar"></div>
 
   <script>
-    fetch('components/navbar.html')
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById('navbar').innerHTML = data;
+    document.addEventListener('DOMContentLoaded', function() {
+      fetch('components/navbar.html')
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.text();
+        })
+        .then(data => {
+          const navbarContainer = document.getElementById('navbar');
+          if (navbarContainer) {
+            navbarContainer.innerHTML = data;
+            
+            // Initialize navbar functionality after it's loaded
+            initNavbar();
+          }
+        })
+        .catch(error => {
+          console.error('Error loading navbar:', error);
+        });
 
+      function initNavbar() {
         // Highlight active page
-        const currentPage = window.location.pathname.split("/").pop();
-        const navLinks = document.querySelectorAll('.navbar__link');
-
+        const currentPage = window.location.pathname.split("/").pop() || 'home.html';
+        const navLinks = document.querySelectorAll('.nav-link');
+        
         navLinks.forEach(link => {
           const linkPage = link.getAttribute('href').split("/").pop();
           if (linkPage === currentPage) {
-            link.parentElement.classList.add('active');
+            link.classList.add('active');
           }
-          
-      console.log(currentPage);
         });
-      });
+
+        // Scroll event handler
+        const navbar = document.querySelector('.navbar');
+        if (navbar) {
+          window.addEventListener('scroll', function() {
+            const scrollPosition = window.scrollY || window.pageYOffset;
+            
+            if (scrollPosition > 50) {
+              navbar.classList.add('scrolled');
+            } else {
+              navbar.classList.remove('scrolled');
+            }
+          });
+
+          // Trigger scroll check on initial load
+          window.dispatchEvent(new Event('scroll'));
+        }
+      }
+    });
   </script>   
 </body>
 </html>
