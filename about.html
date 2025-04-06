@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head id="head-container"></head>
+<body>
+  <div id="coffee-loader"></div>
+  <div id="page-content" style="display: none;">
+
+  <div id="navbar"></div><br><br>
+
+  <section class="hero1">
+    <div class="hero__image-container1">
+      <img src="assets/imgs/coffee_beans.jpg" alt="Coffee cup" class="hero__image">
+    </div>
+    <div class="hero__content1">
+      <h1 class="hero__title">PRODUCT OVERVIEW</h1>
+      <p class="hero__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, ipsam? Placeat omnis nesciunt voluptate consequatur, autem eius temporibus. Nobis dolor accusantium reiciendis qui. Nobis, perferendis culpa soluta consectetur cupiditate dignissimos.</p>
+    </div>
+  </section>
+
+  <section class="hero2">
+    <div class="hero__image-container2">
+      <img src="assets/imgs/coffee_beans.jpg" alt="Coffee cup" class="hero__image">
+    </div>
+    <div class="hero__content2">
+      <h1 class="hero__title">OUR STORY</h1>
+      <p class="hero__description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus dolor corrupti minima facere odio illum repellat deserunt cupiditate distinctio fuga eius ea aperiam cumque autem blanditiis nulla, ratione, et facilis.</p>
+    </div>
+  </section>
+
+  <section class="hero3">
+    <div class="hero__image-container3">
+      <img src="assets/imgs/coffee_beans.jpg" alt="Coffee cup" class="hero__image">
+    </div>
+    <div class="hero__content3">
+      <h1 class="hero__title">SUSTAINABLE SOURCE</h1>
+      <p class="hero__description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus dolor corrupti minima facere odio illum repellat deserunt cupiditate distinctio fuga eius ea aperiam cumque autem blanditiis nulla, ratione, et facilis.</p>
+    </div>
+  </section>
+
+  <section id="barista">
+    <div class="container">
+      <h2 class="section-title text-center mb-5">MEET OUR BARISTA</h2>
+      
+      <!-- Barista 1 and 2 Row -->
+      <div class="row mb-4">
+        <!-- Barista 1 -->
+        <div class="col-md-6 mb-4 mb-md-0">
+          <div class="card h-100">
+            <div class="row g-0 h-100">
+              <div class="col-md-5">
+                <img src="assets/imgs/" alt="Barista Russel Grennat" class="barista-img h-100">
+              </div>
+              <div class="col-md-7">
+                <div class="card-body h-100 d-flex flex-column">
+                  <h5 class="card-title">Russel Grennat</h5>
+                  <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt voluptatibus, optio molestiae quas vero alias sed consequatur.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Barista 2 -->
+        <div class="col-md-6">
+          <div class="card h-100">
+            <div class="row g-0 h-100">
+              <div class="col-md-5">
+                <img src="assets/imgs/" alt="Barista Kirby Nostall" class="barista-img h-100">
+              </div>
+              <div class="col-md-7">
+                <div class="card-body h-100 d-flex flex-column">
+                  <h5 class="card-title">Kirby Nostall</h5>
+                  <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt voluptatibus, optio molestiae quas vero alias sed consequatur.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Barista 3 (Centered Below) -->
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <div class="card h-100">
+            <div class="row g-0 h-100">
+              <div class="col-md-5">
+                <img src="assets/imgs/" alt="Barista Emily Angel" class="barista-img h-100">
+              </div>
+              <div class="col-md-7">
+                <div class="card-body h-100 d-flex flex-column">
+                  <h5 class="card-title">Emily Angel</h5>
+                  <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt voluptatibus, optio molestiae quas vero alias sed consequatur.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mission-vision">
+    <div class="container">
+      <div class="row">
+        <!-- Mission Card -->
+        <div class="col-md-6 mb-4 mb-md-0">
+          <div class="card h-100">
+            <div class="card-body text-center">
+              <h5 class="card-title">OUR MISSION</h5>
+              <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi nemo voluptas suscipit vel a odit quia odio omnis quod nulla fuga molestias voluptatibus, consequuntur pariatur corrupti rem velit, accusamus molestiae.</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Vision Card -->
+        <div class="col-md-6">
+          <div class="card h-100">
+            <div class="card-body text-center">
+              <h5 class="card-title">OUR VISION</h5>
+              <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi nemo voluptas suscipit vel a odit quia odio omnis quod nulla fuga molestias voluptatibus, consequuntur pariatur corrupti rem velit, accusamus molestiae.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer"></div>
+
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Load coffee loader first
+      fetch('components/coffee_loader.html')
+        .then(response => response.text())
+        .then(html => {
+          const loader = document.getElementById('coffee-loader');
+          loader.innerHTML = html;
+          
+          // Now load all other components
+          loadAllContent();
+        })
+        .catch(error => {
+          console.error('Error loading coffee loader:', error);
+          // If loader fails, still try to load content
+          loadAllContent();
+        });
+
+      function loadAllContent() {
+        const page_name = "About Page";
+        const promises = [];
+        
+        // Load head
+        promises.push(
+          fetch('components/head.html')
+            .then(response => response.text())
+            .then(html => {
+              const head = document.head || document.getElementsByTagName('head')[0];
+              const processedHtml = html.replace('${page_name}', page_name);
+              head.insertAdjacentHTML('afterbegin', processedHtml);
+            })
+        );
+        
+        // Load navbar
+        promises.push(
+          fetch('components/navbar.html')
+            .then(response => response.text())
+            .then(data => {
+              const navbarContainer = document.getElementById('navbar');
+              if (navbarContainer) {
+                navbarContainer.innerHTML = data;
+                initNavbar();
+              }
+            })
+        );
+        
+        // Load footer
+        promises.push(
+          fetch('components/footer.html')
+            .then(response => response.text())
+            .then(data => {
+              const footerContainer = document.getElementById('footer');
+              if (footerContainer) {
+                footerContainer.innerHTML = data;
+              }
+            })
+        );
+        
+        // Preload all images
+        const images = [
+          'assets/imgs/coffee_beans.jpg'
+          //INSERT OTHER IMAGES HERE
+        ];
+        
+        images.forEach(src => {
+          promises.push(
+            new Promise((resolve) => {
+              const img = new Image();
+              img.src = src;
+              img.onload = resolve;
+              img.onerror = resolve; // Even if image fails to load, continue
+            })
+          );
+        });
+        
+        // When everything is loaded
+        Promise.all(promises).then(() => {
+          // Hide loader and show content
+          const loader = document.getElementById('coffee-loader');
+          const content = document.getElementById('page-content');
+          
+          if (loader) {
+            loader.style.opacity = '0';
+            setTimeout(() => {
+              loader.style.display = 'none';
+              if (content) content.style.display = 'block';
+            }, 500);
+          } else if (content) {
+            content.style.display = 'block';
+          }
+        }).catch(error => {
+          console.error('Error loading content:', error);
+          // If something fails, still try to show the page
+          const loader = document.getElementById('coffee-loader');
+          const content = document.getElementById('page-content');
+          if (loader) loader.style.display = 'none';
+          if (content) content.style.display = 'block';
+        });
+      }
+
+      function initNavbar() {
+        // Your existing navbar initialization code
+        const currentPage = window.location.pathname.split("/").pop() || 'about.html';
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        navLinks.forEach(link => {
+          const linkPage = link.getAttribute('href').split("/").pop();
+          if (linkPage === currentPage) {
+            link.classList.add('active');
+          }
+        });
+
+        const navbar = document.querySelector('.navbar');
+        if (navbar) {
+          window.addEventListener('scroll', function() {
+            const scrollPosition = window.scrollY || window.pageYOffset;
+            
+            if (scrollPosition > 50) {
+              navbar.classList.add('scrolled');
+            } else {
+              navbar.classList.remove('scrolled');
+            }
+          });
+
+          window.dispatchEvent(new Event('scroll'));
+        }
+      }
+    });
+  </script>  
+</body>
+</html>
