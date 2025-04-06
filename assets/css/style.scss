@@ -1,0 +1,806 @@
+// _variables.scss
+$primary-color: #A67B5B;
+$accent-color: #3E2723;
+$text-color: #5D4037;
+$light-color: #D7A081;
+$background-color: #F8F1E9;
+$font-family: 'Raleway', sans-serif;
+
+// Button Styles 
+.btn-outline-primary {
+  display: inline-block;
+  padding: 0.7rem 2rem;
+  border: 2px solid $primary-color;
+  background: transparent;
+  color: $primary-color;
+  border-radius: 50px;
+  font: 600 0.95rem $font-family;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba($primary-color, 0.15);
+  position: relative;
+  
+  &:hover {
+    background: $primary-color;
+    color: white;
+    box-shadow: 0 12px 30px rgba($primary-color, 0.35);
+    transform: translateY(-3px);
+    
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 50px;
+      box-shadow: 0 0 15px rgba($primary-color, 0.4);
+      opacity: 0;
+      animation: pulse 1.5s infinite;
+    }
+  }
+
+  &:active {
+    transform: translateY(1px);
+    box-shadow: 0 5px 15px rgba($primary-color, 0.3);
+  }
+}
+
+// Pronoun Box-Shadow
+@keyframes pulse {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+// Specialties Section
+.specialties {
+  padding: 4rem 2rem;
+  background: #f9f5f0;
+  text-align: center;
+  
+  .section-title {
+    font-size: 2.2rem;
+    color: $accent-color;
+    margin-bottom: 3rem;
+  }
+  
+  .card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    
+    &:hover {
+      transform: translateY(-10px);
+    }
+  }
+
+  .card-img-top {
+    width: 100%;
+    height: 300px; // Adjust this value as needed
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    
+    img {
+      width: 300px;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+  
+  .card-body {
+    padding: 1.5rem;
+  }
+  
+  .card-footer {
+    padding: 0 1.5rem 1.5rem;
+  }
+}
+
+// Hero button shadow 
+.hero__button {
+  box-shadow: 0 4px 6px rgba($text-color, 0.1);
+  
+  &:hover {
+    box-shadow: 0 8px 15px rgba($text-color, 0.2);
+  }
+}
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 80vh; 
+  overflow: hidden;
+  margin: 0; 
+  padding: 0;
+
+  &__image-container {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block; 
+  }
+
+  &__content {
+    position: absolute;
+    top: 50%;
+    right: 5%;
+    transform: translateY(-50%);
+    max-width: 50%;
+    padding: 2rem;
+    background-color: rgba($light-color, 0.80);
+    border-radius: 12px;
+    text-align: center;
+  }
+
+  &__title {
+    font-size: 2.1rem;
+    font-weight: bold;
+    color: $accent-color;
+    margin-bottom: 1rem;
+  }
+
+  &__description {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: $text-color;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+
+  &__button {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: $text-color;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: $light-color;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      background-color: darken($accent-color, 10%);
+      box-shadow: 0 10px 20px rgba($accent-color, 5);
+      transform: translateY(-10px);
+    }
+  }
+
+  @media (max-width: 768px) {
+    height: 90vh;
+
+    &__content {
+      max-width: 90%;
+      right: 50%;
+      transform: translate(50%, -50%);
+      text-align: center;
+      padding: 1.5rem;
+    }
+
+    &__title {
+      font-size: 2rem;
+    }
+  }
+}
+
+.form-group {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  position: absolute;
+  top: 12px;
+  left: 10px;
+  color: #777;
+  transition: all 0.3s ease;
+  pointer-events: none;
+  padding: 0 5px;
+  background: white;
+}
+
+.form-control:focus + label,
+.form-control:not(:placeholder-shown) + label,
+.form-select:focus + label,
+.form-select:valid + label,
+textarea:focus + label,
+textarea:not(:placeholder-shown) + label {
+  top: -10px;
+  left: 10px;
+  font-size: 0.8rem;
+  color: $primary-color;
+}
+
+.underline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: $primary-color;
+  transition: width 0.3s ease;
+}
+
+.form-control:focus ~ .underline,
+.form-select:focus ~ .underline,
+textarea:focus ~ .underline {
+  width: 100%;
+}
+
+/* Star Rating Styles */
+.star-rating {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.star-rating input {
+  display: none;
+}
+
+.star-rating label {
+  font-size: 1.5rem;
+  color: #e0e0e0;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.star-rating input:checked ~ label,
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+  color: $accent-color;
+}
+
+.star-rating input:checked + label {
+  color: $accent-color;
+}
+
+/* Success Message Styles */
+#successMessage {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.success-icon i {
+  font-size: 4rem;
+  color: $accent-color;
+  animation: bounceIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes bounceIn {
+  0% { transform: scale(0.5); opacity: 0; }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.visit {
+  background: $background-color;
+  
+  .hours-card {
+    background: white;
+    border-left: 4px solid $primary-color;
+    
+    .day-row {
+      padding: 8px 0;
+      border-bottom: 1px solid #eee;
+      
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+
+  .map-container {
+    background: white;
+    border-radius: 8px;
+    
+    .map-title {
+      border-bottom: 1px solid #eee;
+      font-size: 1.2rem;
+    }
+    
+    .map-footer {
+      border-top: 1px solid #eee;
+      font-size: 0.9rem;
+    }
+  }
+
+  // Icon and text colors
+  .accent-icon { color: $accent-color; }
+  .text-colored { color: $text-color; }
+
+  @media (max-width: 992px) {
+    .hours-card {
+      margin-bottom: 2rem;
+    }
+  }
+}
+
+// Contact Page Styles
+.contact-section {
+  background-color: #f9f5f0;
+  min-height: calc(100vh - 56px); 
+
+  .section-title {
+    color: $accent-color;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 15px;
+    
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 200px;
+        height: 3px;
+        background: $primary-color;
+    }
+  }
+
+  .contact-card {
+      background: white;
+      border-radius: 12px;
+      border: none;
+      
+      .card-body {
+          background-color: white;
+          border-radius: 12px;
+      }
+  }
+
+  .contact-info-card {
+    background: white;
+    border-radius: 12px;
+    border: none;
+    
+    h3 {
+        color: $primary-color;
+        font-weight: 600;
+    }
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    
+    .contact-icon {
+        width: 40px;
+        height: 40px;
+        background: lighten($primary-color, 40%);
+        color: $primary-color;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 15px;
+        flex-shrink: 0;
+    }
+    
+    .contact-text {
+        h5 {
+            color: $accent-color;
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+        
+        a {
+            color: $text-color;
+            transition: color 0.3s;
+            
+            &:hover {
+                color: $primary-color;
+            }
+        }
+    }
+  }
+
+  .feedback-card {
+    background: white;
+    border-radius: 12px;
+    border: none;
+    
+    .card-body {
+        background-color: white;
+        border-radius: 12px;
+    }
+  }
+
+  .form-label {
+      font-weight: 600;
+      color: $accent-color;
+  }
+
+  .form-control, .form-select {
+      border: 1px solid rgba($primary-color, 0.3);
+      padding: 10px 15px;
+      border-radius: 8px;
+      
+      &:focus {
+          border-color: $primary-color;
+          box-shadow: 0 0 0 0.25rem rgba($primary-color, 0.25);
+      }
+      option {
+        &:hover,
+        &:focus,
+        &:checked {
+          background-color: $text-color;
+          color: white;
+        }
+      }
+  }
+
+  .rating-stars {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+
+      .star-rating {
+          display: flex;
+          flex-direction: row-reverse;
+          justify-content: center;
+          
+          input {
+              display: none;
+              
+              + label {
+                  font-size: 24px;
+                  color: #ddd;
+                  cursor: pointer;
+                  transition: color 0.2s;
+                  margin: 0 5px;
+              }
+              
+              &:checked ~ label,
+              &:hover ~ label,
+              &:hover + label {
+                  color: $accent-color;
+              }
+          }
+      }
+  }
+/* For the selected option highlight */
+select option:checked {
+  background-color: $text-color;
+  color: white;
+}
+  .btn-submit {
+      background-color: $primary-color;
+      border: none;
+      padding: 12px 30px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      
+      &:hover {
+          background-color: darken($primary-color, 10%);
+          transform: translateY(-2px);
+          box-shadow: 0 5px 15px rgba($primary-color, 0.3);
+      }
+  }
+
+  @media (max-width: 768px) {
+      .contact-card {
+          margin-top: 1rem;
+      }
+  }
+
+  @media (max-width: 992px) {
+    .contact-item {
+        .contact-icon {
+            width: 36px;
+            height: 36px;
+            font-size: 0.9rem;
+        }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .contact-info-card, .feedback-card {
+        margin-bottom: 2rem;
+    }
+  }
+}
+
+//Hero Section Style
+.hero1, .hero2, .hero3 {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 80vh;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.hero__image-container1, 
+.hero__image-container2, 
+.hero__image-container3 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.hero__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero__content1, 
+.hero__content2, 
+.hero__content3 {
+  position: relative;
+  z-index: 2;
+  color: white;
+  padding: 2rem;
+  background-color: rgba($light-color, 0.80);
+  max-width: 600px;
+  border-radius: 8px;
+}
+
+/* Hero 1 - Content on right */
+.hero__content1 {
+  margin-left: auto;
+  margin-right: 5%;
+}
+
+/* Hero 2 - Content centered */
+.hero__content2 {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+/* Hero 3 - Content on left */
+.hero__content3 {
+  margin-left: 5%;
+  margin-right: auto;
+}
+
+.hero__title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero__description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .hero1, .hero2, .hero3 {
+      min-height: 60vh;
+      flex-direction: column;
+  }
+
+  .hero__content1, 
+  .hero__content2, 
+  .hero__content3 {
+      margin: 2rem auto;
+      width: 90%;
+  }
+
+  .hero__title {
+      font-size: 2rem;
+  }
+
+}
+
+#barista {
+  padding: 4rem 0;
+  
+  .card {
+    border: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    overflow: hidden;
+    
+    &:hover {
+      transform: translateY(-5px);
+    }
+  }
+  
+  .barista-img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    object-position: center;
+  }
+  
+  .card-body {
+    padding: 1.5rem;
+  }
+  
+  .card-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: $accent-color;
+    margin-bottom: 1rem;
+  }
+  
+  .card-text {
+    color: $text-color; // Use your text color variable
+    line-height: 1.6;
+  }
+  
+  @media (max-width: 768px) {
+    .barista-img {
+      height: 400px;
+    }
+    
+    .card-title {
+      font-size: 1.3rem;
+    }
+  }
+}
+
+.mission-vision {
+  padding: 4rem 0;
+  
+  .card {
+    border: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    height: 100%;
+    
+    &:hover {
+      transform: translateY(-5px);
+    }
+  }
+  
+  .card-body {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .card-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: $accent-color;
+    margin-bottom: 1.5rem;
+  }
+  
+  .card-text {
+    color: $text-color;
+    line-height: 1.6;
+    max-width: 80%;
+  }
+  
+  @media (max-width: 768px) {
+    padding: 2rem 0;
+    
+    .card-body {
+      padding: 1.5rem;
+    }
+    
+    .card-title {
+      font-size: 1.3rem;
+    }
+    
+    .card-text {
+      max-width: 100%; /* Full width on mobile */
+    }
+  }
+}
+
+.footer {
+  background-color: $primary-color;
+  color: $accent-color;
+  padding: 3rem 0;
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .brand-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .footer-logo {
+    height: 50px;
+    margin-bottom: 1rem;
+  }
+  
+  .brand-text {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .brand-name {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: $accent-color
+  }
+  
+  .brand-tagline {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: $light-color;
+  }
+  
+  .contact-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    
+    .contact-icon {
+      margin-right: 1rem;
+      font-size: 1.2rem;
+      color: $accent-color; 
+    }
+    
+    .contact-text {
+      h5 {
+        font-size: 1rem;
+        margin-bottom: 0.25rem;
+        color: $light-color;
+      }
+      
+      a {
+        color: $text-color;
+        transition: color 0.3s ease;
+        
+        &:hover {
+          color: $light-color;
+        }
+      }
+    }
+  }
+  
+  @media (max-width: 768px) {
+    padding: 2rem 0;
+    
+    .brand-name {
+      font-size: 1.5rem;
+    }
+    
+    .brand-tagline {
+      font-size: 1rem;
+    }
+    
+    .col-md-4 {
+      margin-bottom: 2rem;
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

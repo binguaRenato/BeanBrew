@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head id="head-container"></head>
+<body>
+    <div id="coffee-loader"></div>
+    <div id="page-content" style="display: none;">
+        
+    <div id="navbar"></div><br><br>
+
+    <section class="contact-section py-5">
+        <div class="container">
+            <h1 class="text-center mb-5 section-title">Contact Us</h1>
+            
+            <div class="row">
+                <!-- Contact Information Column -->
+                <div class="col-lg-5 mb-4 mb-lg-0">
+                    <div class="contact-info-card p-4 h-100 shadow-sm">
+                        <h3 class="mb-4"><i class="fas fa-info-circle me-2"></i>Our Details</h3>
+                        
+                        <div class="contact-item mb-3">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h5>Phone Number</h5>
+                                <a href="tel:09178005135" class="text-decoration-none">0917 800 5135</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item mb-3">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h5>Email</h5>
+                                <a href="mailto:beanbrewingcafe@gmail.com" class="text-decoration-none">beanbrew@gmail.com</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item mb-3">
+                            <div class="contact-icon">
+                                <i class="fab fa-facebook-f"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h5>Facebook</h5>
+                                <a href="https://www.facebook.com/beanbrewingcafe" target="_blank" class="text-decoration-none">beanbrew</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h5>Address</h5>
+                                <a href="https://maps.app.goo.gl/GQsieRtHuycpGscU7" target="_blank" class="text-decoration-none">
+                                    MW3V+5GH, Lacson St, Bacolod,<br>6100 Negros Occidental
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Feedback Form Column -->
+                <div class="col-lg-7">
+                    <div class="feedback-card shadow-sm">
+                        <div class="card-body p-4 p-md-5">
+                            <h2 class="text-center mb-4">Send Us Your Feedback</h2>
+                            
+                            <form id="feedbackForm">
+                                <!-- Name Field -->
+                                <div class="form-group mb-4">
+                                    <input type="text" class="form-control" id="name" placeholder=" ">
+                                    <label for="name">Name (Optional)</label>
+                                    <div class="underline"></div>
+                                </div>
+                                
+                                <!-- Email Field -->
+                                <div class="form-group mb-4">
+                                    <input type="email" class="form-control" id="email" placeholder=" ">
+                                    <label for="email">Email (Optional)</label>
+                                    <div class="underline"></div>
+                                </div>
+                                
+                                <!-- Product Selection -->
+                                <div class="form-group mb-4">
+                                    <select class="form-select" id="product" required>
+                                        <option value="" selected disabled></option>
+                                        <option value="espresso">Espresso</option>
+                                        <option value="latte">Latte</option>
+                                        <option value="cold-brew">Cold Brew</option>
+                                    </select>
+                                    <label for="product">Product</label>
+                                    <div class="underline"></div>
+                                </div>
+                                
+                                <!-- Rating -->
+                                <div class="mb-4">
+                                    <label class="form-label">Rate Our Product</label>
+                                    <div class="rating-stars">
+                                        <div class="star-rating">
+                                            <input type="radio" id="star5" name="rating" value="5">
+                                            <label for="star5"><i class="fas fa-star"></i></label>
+                                            <input type="radio" id="star4" name="rating" value="4">
+                                            <label for="star4"><i class="fas fa-star"></i></label>
+                                            <input type="radio" id="star3" name="rating" value="3">
+                                            <label for="star3"><i class="fas fa-star"></i></label>
+                                            <input type="radio" id="star2" name="rating" value="2">
+                                            <label for="star2"><i class="fas fa-star"></i></label>
+                                            <input type="radio" id="star1" name="rating" value="1">
+                                            <label for="star1"><i class="fas fa-star"></i></label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Message -->
+                                <div class="form-group mb-4">
+                                    <textarea class="form-control" id="message" rows="4" required placeholder=" "></textarea>
+                                    <label for="message">Your Feedback</label>
+                                    <div class="underline"></div>
+                                </div>
+                                
+                                <!-- Submit Button -->
+                                <div class="text-center">
+                                    <button type="submit" class="btn-outline-primary"><strong>Send Feedback</strong></button>
+                                </div>
+                            </form>
+                            
+                            <!-- Success Message (hidden by default) -->
+                            <div id="successMessage" class="text-center py-4" style="display: none;">
+                                <div class="success-icon mb-3">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <h3>Thank You For Your Feedback!</h3>
+                                <p class="mb-4">We appreciate you taking the time to share your experience with us.</p>
+                                <button id="newFeedbackBtn" class="btn-outline-primary">Submit New Feedback</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer"></div>
+
+<script>
+  // Load coffee loader first
+  fetch('components/coffee_loader.html')
+    .then(response => {
+      if (!response.ok) throw new Error('Coffee loader not found');
+      return response.text();
+    })
+    .then(html => {
+      const loader = document.getElementById('coffee-loader');
+      if (loader) loader.innerHTML = html;
+      loadAllContent(); // Proceed to load other content
+    })
+    .catch(error => {
+      console.error('Error loading coffee loader:', error);
+      loadAllContent(); // Continue even if loader fails
+    });
+
+  function loadAllContent() {
+    const page_name = "Contact Page";
+    const promises = [];
+    
+    // Load head
+    promises.push(
+      fetch('components/head.html')
+        .then(response => {
+          if (!response.ok) throw new Error('Head not found');
+          return response.text();
+        })
+        .then(html => {
+          const head = document.head || document.getElementsByTagName('head')[0];
+          const processedHtml = html.replace('${page_name}', page_name);
+          head.insertAdjacentHTML('afterbegin', processedHtml);
+        })
+        .catch(error => console.error('Error loading head:', error))
+    );
+    
+    // Load navbar
+    promises.push(
+      fetch('components/navbar.html')
+        .then(response => {
+          if (!response.ok) throw new Error('Navbar not found');
+          return response.text();
+        })
+        .then(data => {
+          const navbarContainer = document.getElementById('navbar');
+          if (navbarContainer) {
+            navbarContainer.innerHTML = data;
+            initNavbar();
+            initStarRating();
+            initFeedbackForm();
+          }
+        })
+        .catch(error => console.error('Error loading navbar:', error))
+    );
+    
+    // Load footer
+    promises.push(
+      fetch('components/footer.html')
+        .then(response => {
+          if (!response.ok) throw new Error('Footer not found');
+          return response.text();
+        })
+        .then(data => {
+          const footerContainer = document.getElementById('footer');
+          if (footerContainer) {
+            footerContainer.innerHTML = data;
+          }
+        })
+        .catch(error => console.error('Error loading footer:', error))
+    );
+    
+    // Preload all images on the page
+    const images = document.querySelectorAll('img[src]');
+    images.forEach(img => {
+      promises.push(
+        new Promise((resolve) => {
+          const image = new Image();
+          image.src = img.src;
+          image.onload = resolve;
+          image.onerror = resolve; // Continue even if image fails
+        })
+      );
+    });
+
+    // When everything is loaded
+    Promise.all(promises)
+      .then(() => {
+        // Hide loader and show content
+        const loader = document.getElementById('coffee-loader');
+        const content = document.getElementById('page-content');
+        
+        if (loader) {
+          loader.style.opacity = '0';
+          setTimeout(() => {
+            loader.style.display = 'none';
+            if (content) {
+              content.style.display = 'block';
+              // Initialize form animations after content is visible
+              initFormAnimations();
+            }
+          }, 500);
+        } else if (content) {
+          content.style.display = 'block';
+          initFormAnimations();
+        }
+      })
+      .catch(error => {
+        console.error('Error during loading:', error);
+        // Ensure page is shown even if some elements failed
+        const loader = document.getElementById('coffee-loader');
+        const content = document.getElementById('page-content');
+        if (loader) loader.style.display = 'none';
+        if (content) {
+          content.style.display = 'block';
+          initFormAnimations();
+        }
+      });
+  }
+
+  function initNavbar() {
+    // Highlight active page
+    const currentPage = window.location.pathname.split("/").pop() || 'contact.html';
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    navLinks.forEach(link => {
+      const linkPage = link.getAttribute('href').split("/").pop();
+      if (linkPage === currentPage) {
+        link.classList.add('active');
+      }
+    });
+
+    // Scroll event handler
+    const navbar = document.querySelector('.navbar');
+    if (navbar) {
+      window.addEventListener('scroll', function() {
+        const scrollPosition = window.scrollY || window.pageYOffset;
+        
+        if (scrollPosition > 50) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
+      });
+
+      // Trigger scroll check on initial load
+      window.dispatchEvent(new Event('scroll'));
+    }
+  }
+
+  function initStarRating() {
+    const stars = document.querySelectorAll('.star-rating input');
+    if (stars.length > 0) {
+      stars.forEach(star => {
+        star.addEventListener('change', function() {
+          const rating = this.value;
+          console.log(`Rating selected: ${rating} stars`);
+        });
+      });
+    }
+  }
+
+  function initFeedbackForm() {
+    const feedbackForm = document.getElementById('feedbackForm');
+    const successMessage = document.getElementById('successMessage');
+    const newFeedbackBtn = document.getElementById('newFeedbackBtn');
+    
+    if (feedbackForm) {
+      feedbackForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Add loading state
+        const submitBtn = this.querySelector('button[type="submit"]');
+        submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Sending...';
+        submitBtn.disabled = true;
+        
+        // Simulate API call (replace with actual fetch/AJAX call)
+        setTimeout(() => {
+          // Hide form with fade out animation
+          feedbackForm.style.opacity = '0';
+          feedbackForm.style.transition = 'opacity 0.3s ease';
+          
+          setTimeout(() => {
+            feedbackForm.style.display = 'none';
+            
+            // Show success message with animation
+            successMessage.style.display = 'block';
+            successMessage.style.opacity = '0';
+            successMessage.style.transform = 'translateY(20px)';
+            
+            setTimeout(() => {
+              successMessage.style.opacity = '1';
+              successMessage.style.transform = 'translateY(0)';
+              successMessage.style.transition = 'all 0.4s ease';
+            }, 50);
+            
+            // Reset form and button
+            feedbackForm.reset();
+            submitBtn.innerHTML = '<strong>Send Feedback</strong>';
+            submitBtn.disabled = false;
+            feedbackForm.style.opacity = '1';
+            
+            // Reset star rating
+            const checkedStar = document.querySelector('input[name="rating"]:checked');
+            if (checkedStar) checkedStar.checked = false;
+            
+          }, 300);
+        }, 1500); // Simulate network delay
+      });
+    }
+    
+    if (newFeedbackBtn) {
+      newFeedbackBtn.addEventListener('click', function() {
+        // Hide success message with animation
+        successMessage.style.opacity = '0';
+        successMessage.style.transform = 'translateY(20px)';
+        successMessage.style.transition = 'all 0.3s ease';
+        
+        setTimeout(() => {
+          successMessage.style.display = 'none';
+          
+          // Show form with animation
+          feedbackForm.style.display = 'block';
+          feedbackForm.style.opacity = '0';
+          feedbackForm.style.transform = 'translateY(20px)';
+          
+          setTimeout(() => {
+            feedbackForm.style.opacity = '1';
+            feedbackForm.style.transform = 'translateY(0)';
+            feedbackForm.style.transition = 'all 0.4s ease';
+          }, 50);
+          
+        }, 300);
+      });
+    }
+  }
+
+  function initFormAnimations() {
+    // Add animation to form elements when showing
+    const formGroups = document.querySelectorAll('.form-group');
+    formGroups.forEach((group, index) => {
+      group.style.opacity = '0';
+      group.style.transform = 'translateY(20px)';
+      group.style.transition = `all 0.3s ease ${index * 0.1}s`;
+      
+      setTimeout(() => {
+        group.style.opacity = '1';
+        group.style.transform = 'translateY(0)';
+      }, 100);
+    });
+  }
+</script>
+</body>
+</html>
