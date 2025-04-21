@@ -1,2 +1,2 @@
 # BeanBrew
-https://binguarenato.github.io/BeanBrew/home.html
+https://binguarenato.github.io/BeanBrew/home
